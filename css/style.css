@@ -1,0 +1,78 @@
+nav{
+      background-color:rgb(159, 159, 211);
+      margin-bottom: 20px;
+  }
+
+.top-nav-collapse {
+    background-color: #24355c;
+  }
+  
+.list-item {
+  padding:10px;
+  text-decoration: none;
+  font-size: 20px;
+
+  }
+
+
+  body, html {
+    overflow: auto;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+ 
+@media (min-width:990px) {
+   .login-signup {
+       margin-left: 350px;
+  }
+}
+
+#intro {
+    background: url("https://colleenoharasbeautyacademy.edu/wp-content/uploads/2015/08/best-hairstylist-schools-in-california.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+h2{
+    font-family: 'Calligraffitti';
+    font-weight: bolder;
+    color: brown !important;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  #img1 {
+    cursor: pointer;
+   }
+   #img2 {
+    cursor: pointer;
+   }
+   #img3 {
+    cursor: pointer;
+   }
+   #img4 {
+    cursor: pointer;
+   }
+   #img5 {
+    cursor: pointer;
+   }
+   #img6 {
+    cursor: pointer;
+   }
+
+.carousel {
+    text-align: center;
+}
+
+.details {
+    font-size: x-small;
+}
+
+.checked {
+  color: orange;
+}

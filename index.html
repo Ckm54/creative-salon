@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon"
+            href="data:image/png;base64,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"
+            type="image/png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+            rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+        <link href="css/style.css" rel="stylesheet">
+        <title>Creative Salon</title>
+    </head>
+
+    <body>
+        <!-- Navigation bar -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand black-text" href="#">CREATIVE SALON </a>
+
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                        <ul class="navbar-nav smooth-scroll">
+                            <li class="list-item">
+                                <a class="nav-link black-text" href="#intro">Home</a>
+                            </li>
+
+                            <li class="list-item">
+                                <a class="nav-link black-text" href="#about">About</a>
+
+                            </li>
+                            <li class="list-item">
+                                <a class="nav-link black-text" href="#hairstyles">Hairstyles</a>
+
+                            </li>
+
+                            <li class="list-item">
+                                <a class="nav-link black-text" href="#stylists">Stylists</a>
+
+                            </li>
+
+                            <li class="list-item">
+                                <a class="nav-link black-text" href="#contact">Contact</a>
+
+                            </li>
+
+
+                            <li class="list-item login-signup">
+                                <a href="" class="nav-link black-text" data-toggle="modal"
+                                    data-target="#modalLRForm">Login</a>
+                            </li>
+
+                            <li class="list-item">
+                                <a href="" class="nav-link black-text" data-toggle="modal"
+                                    data-target="#panel8">Register</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </nav>
+
+
+            <div id="intro" class="view hm-black-strong">
+
+                <div class="container-fluid full-bg-img d-flex align-items-center justify-content-center">
+
+                    <div class="row d-flex justify-content-center">
+
+                        <div class="col-md-10 text-center mt-5">
+                            <!--Modal: Login-->
+                            <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog cascading-modal" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content">
+
+                                        <div class="modal-c-tabs">
+                                            <div class="tab-content">
+                                                <!--Panel 7-->
+                                                <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                                                    <h5 class="modal-title">Creative Salon Account Login</h5>
+                                                    <!--Body-->
+                                                    <div class="modal-body mb-1">
+                                                        <div class="md-form form-sm mb-5">
+                                                            <i class="fas fa-envelope prefix"></i>
+                                                            <input type="email" id="modalLRInput10"
+                                                                class="form-control form-control-sm validate">
+                                                            <label data-error="wrong" data-success="right"
+                                                                for="modalLRInput10">Your email</label>
+                                                        </div>
+
+                                                        <div class="md-form form-sm mb-4">
+                                                            <i class="fas fa-lock prefix"></i>
+                                                            <input type="password" id="modalLRInput11"
+                                                                class="form-control form-control-sm validate">
+                                                            <label data-error="wrong" data-success="right"
+                                                                for="modalLRInput11">Your password</label>
+                                                        </div>
+                                                        <div class="text-center mt-2">
+                                                            <button class="btn btn-info">Log in <i
+                                                                    class="fas fa-sign-in ml-1"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <!--Footer-->
+                                                    <div class="modal-footer">
+                                                        <div class="options text-center text-md-right mt-1">
+                                                            <p>Not a member? <a href="#" data-toggle="modal"
+                                                                    data-target="#panel8" class="blue-text"
+                                                                    data-dismiss="modal">Sign Up</a>
+                                                            </p>
+                                                            <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                                                        </div>
+                                                        <button type="button"
+                                                            class="btn btn-outline-info waves-effect ml-auto"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--/.Content-->
+                                </div>
+                            </div>
+
+
+                            <!--Modal: Register-->
+                            <div class="modal fade" id="panel8" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog cascading-modal" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content">
+
+                                        <div class="modal-c-tabs">
+                                            <div class="tab-content">
+                                                <!--Panel 7-->
+                                                <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                                                    <h5 class="modal-title">Creative Salon Account Registration</h5>
+                                                    <!--Body-->
+                                                    <div class="modal-body">
+                                                        <div class="md-form form-sm mb-5">
+                                                            <i class="fas fa-envelope prefix"></i>
+                                                            <input type="email" id="modalLRInput12"
+                                                                class="form-control form-control-sm validate">
+                                                            <label data-error="wrong" data-success="right"
+                                                                for="modalLRInput12">Your
+                                                                email</label>
+                                                        </div>
+
+                                                        <div class="md-form form-sm mb-5">
+                                                            <i class="fas fa-lock prefix"></i>
+                                                            <input type="password" id="modalLRInput13"
+                                                                class="form-control form-control-sm validate">
+                                                            <label data-error="wrong" data-success="right"
+                                                                for="modalLRInput13">Your
+                                                                password</label>
+                                                        </div>
+
+                                                        <div class="md-form form-sm mb-4">
+                                                            <i class="fas fa-lock prefix"></i>
+                                                            <input type="password" id="modalLRInput14"
+                                                                class="form-control form-control-sm validate">
+                                                            <label data-error="wrong" data-success="right"
+                                                                for="modalLRInput14">Repeat
+                                                                password</label>
+                                                        </div>
+
+                                                        <div class="text-center form-sm mt-2">
+                                                            <button class="btn btn-info">Sign up <i
+                                                                    class="fas fa-sign-in ml-1"></i></button>
+                                                        </div>
+
+                                                    </div>
+                                                    <!--Footer-->
+                                                    <div class="modal-footer">
+                                                        <div class="options text-right">
+                                                            <p class="pt-1">Already have an account? <a href="#"
+                                                                    data-toggle="modal" data-target="#modalLRForm"
+                                                                    class="blue-text" data-dismiss="modal">Log
+                                                                    In</a></p>
+                                                        </div>
+                                                        <button type="button"
+                                                            class="btn btn-outline-info waves-effect ml-auto"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--/.Content-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </header>
+
+
+        <div id="about" class="ml-3 mr-3">
+            <h2>Let's find your perfect stylist</h2>
+            <p>We’ve endured soul-crushing, hair-breaking, money-wasting trial-and-error, and put up with bad service,
+                long waits, and rude stylists…all in the name of beauty. We couldn't find a solution, so we created one.
+                creative salon provides a platform where you can enjoy peace of mind in knowing that you will receive
+                high-quality salon services and professional stylists who can understand just what you need. e-salon
+                members have met these standards, and will provide you with the very best in hairdressing.</p>
+            <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="img/pic1.jpg" height="400px" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/pic2.jpg" height="400px" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/pic3.jpg" height="400px" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+
+        <div id="hairstyles" class="mt-4 ml-3 mr-3">
+            <h2 class="mb-3">Our Hairstyles</h2>
+            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+                <!--Controls-->
+                <div class="controls-top carousel">
+                    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
+                            class="fas fa-chevron-left"></i></a>
+                    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                            class="fas fa-chevron-right"></i></a>
+                </div>
+                <!--/.Controls-->
+
+                <!--Indicators-->
+                <ol class="carousel-indicators">
+                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                    <li data-target="#multi-item-example" data-slide-to="1"></li>
+                    <li data-target="#multi-item-example" data-slide-to="2"></li>
+                </ol>
+                <!--/.Indicators-->
+
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+
+                    <!--First slide-->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/Faux.jpg" alt="Card image cap" height="200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Faux-Locks</h4>
+                                        <p class="card-text">Best ways to pull off the hairstyle.</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/happy.jpg" alt="Card image cap" height="200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Happily-Married</h4>
+                                        <p class="card-text">Cornrows come in all styles and colors.</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/feed.jpg" alt="Card image cap" height="200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Feed-in-Braids</h4>
+                                        <p class="card-text">Mix small and big feeding into each other.</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.First slide-->
+
+                    <!--Second slide-->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/box.jpg" alt="Card image cap" height="200">
+                                    <div class="card-body" height="200px;">
+                                        <h4 class="card-title">Box-Braids</h4>
+                                        <p class="card-text">Triangle convectional parted box braids.</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/box1.jpg" alt="Card image cap" height=200px;>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Box-Braids</h4>
+                                        <p class="card-text">Side parting braids from either side of the head.</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/box4.jpg" alt="Card image cap" height="200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Box-Braids</h4>
+                                        <p class="card-text">Big box braids protect hair breakage especially on edges.
+                                        </p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--/.Second slide-->
+
+                    <!--Third slide-->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/mohawk2.jpg" alt="Card image cap"
+                                        height="200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Mohawk</h4>
+                                        <p class="card-text">Have the sides of your hair cornrowed..</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/mohawk1.jpg" alt="Card image cap"
+                                        height="200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Mohawk</h4>
+                                        <p class="card-text">Shed the monotony with your box braids.</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="img/mohawk.jpg" alt="Card image cap" height="200px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Mohawk</h4>
+                                        <p class="card-text">Trendy way to wear braids with shaved sides.</p>
+                                        <!-- <a class="btn btn-primary">Button</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Third slide-->
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="stylists">
+            <div class=" mr-3 ml-3">
+                <h2 class="mb-3">Stylists Profile</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="img/worker1.jpg" class="profile" alt="Salonist Image" id="img1" height="200px"
+                            width="300px">
+                        <p>Name: James Oburu</p>
+                        <div class="details">
+                            <p class="details">Rating: <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </p>
+                            <small>QUALIFICATIONS</small>
+                            <ul>
+                                <li>Graduated from Vera Beauty and Fashion College.</li>
+                                <li>She has a vast experience of 4 years.</li>
+                                <li>Emerged second in Nordic Hair Awards Competion of 2018.</li>
+                            </ul>
+                            <p class="details">CONTACT</p>
+                            <p class="details">Tel: 39439493 <br>Email: james@gmail.com <br>Location: Situated
+                                along Kenyatta Avenue Opp. GPO</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/worker2.jpg" class="profile" alt="Salonist Image" id="img4" height="200px"
+                            width="300px">
+                        <p>Name:Rosette Mwamba</p>
+                        <p class="details">Rating:<span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </p>
+                        <div class="details">
+                            <h4 class="details">QUALIFICATIONS</h4>
+                            <ul>
+                                <li>Graduated from Ashley's beauty College.</li>
+                                <li>An experience of five years in hair styling.</li>
+                                <li>She was the student of the year in 2013 due to her hard and talented work.</li>
+                            </ul>
+
+                            <h4 class="details">CONTACT</h4>
+                            <p class="details">Tel:0722567798 <br>
+                                Email:mogusu@gmail.com<br>
+                                Location:Situated along Tom Mboya opposite National Archives</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 details">
+                        <img src="img/worker3.jpg" class="profile" alt="Salonist Image" id="img6" height="200px"
+                            width="300px">
+                        <p class="details">Name:Shantel Mweheni</p>
+                        <p class="details">Rating:<span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </p>
+                        <div class="details">
+                            <h4 class="details">QUALIFICATIONS</h4>
+                            <ul>
+                                <li>Graduated from Pink Lady Salon And Training School.</li>
+                                <li>She has an experience of three years in hair styling.</li>
+                                <li>She won an award of the best hair stylist in the Mzomo Beauty Competitions in 2018.
+                                </li>
+                            </ul>
+                            <h4 class="details">CONTACT</h4>
+                            <p class="details">Tel:0721589798 <br>
+                                Email:mweheni@gmail.com<br>
+                                Location:Situated along Moi Avenue</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 details mt-3">
+                        <img src="img/worker4.jpg" class="profile" alt="Salonist Image" id="img5" height="200px"
+                            width="300px">
+                        <p>Name:Samson Kabwelu</p>
+                        <p class="details">Rating:<span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </p>
+                        <div class="details">
+                            <h4 class="details">QUALIFICATIONS</h4>
+                            <ul>
+                                <li>Graduated from Beauty Point School Of Hair & Beauty College.</li>
+                                <li>He has an experience of two years in hair styling.</li>
+                            </ul>
+
+                            <h4 class="details">CONTACT</h4>
+                            <p class="details">Tel:0721589798 <br>
+                                Email:Sammy@gmail.com<br>
+                                Location:Situated along Kenyatta Avenue</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 details mt-3">
+                        <img src="img/worker5.jpg" class="profile" alt="Salonist Image" id="img2" height="200px"
+                            width="300px">
+                        <p>Name: Happiness Mwikali</p>
+                        <p class="details">Rating: <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </p>
+                        <div id="details">
+                            <h4 class="details">QUALIFICATIONS</h4>
+                            <ul>
+                                <li>Graduated from Sonu Hair and Beauty Academy.</li>
+                                <li>She has a vast experience of 6 years.</li>
+                                <li>She graduated top in her class.</li>
+                            </ul>
+                            <h4 class="details">CONTACT</h4>
+                            <p class="details">Tel: 38534859<br>Email: happiness@gmail.com <br>Location: Situated
+                                along Tom Mboya Street Opp. Odeon Cinema</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 details mt-3">
+                        <img src="img/worker1.jpg" alt="Salonist Image" class="profile" id="img3" height="200px"
+                            width="300px;">
+                        <p>Name: Paul Johns</p>
+                        <p class="details">Rating: <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </p>
+                        <div>
+                            <h4 class="details">QUALIFICATIONS</h4>
+                            <ul>
+                                <li>Graduated from Beauty Point College.</li>
+                                <li>He has a vast experience of 3 years.</li>
+                                <li>He has had an experience of styling a number of high profile individuals in the
+                                    Country.</li>
+                            </ul>
+                            <h4 class="details">CONTACT</h4>
+                            <p class="details">Tel: 38534859<br>Email: pauljohns@gmail.com <br>Location: Situated
+                                along Tom Mboya Street Opp. Odeon Cinema</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="contact">
+            <section class="mb-4 resp ml-3 mr-3">
+                <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+                <p class="text-center w-responsive mx-auto mb-3">Do you have any questions? Please do not hesitate to
+                    contact us directly. Our team will come back to you within
+                    a matter of hours to help you.</p>
+                <div class="row">
+                    <div class="col-md-9 mb-md-0 mb-5">
+                        <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="md-form mb-0">
+                                        <input type="text" id="name" name="name" class="form-control">
+                                        <label for="name" class="">Your name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="md-form mb-0">
+                                        <input type="text" id="email" name="email" class="form-control">
+                                        <label for="email" class="">Your email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="md-form mb-0">
+                                        <input type="text" id="subject" name="subject" class="form-control">
+                                        <label for="subject" class="">Subject</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="md-form">
+                                        <textarea type="text" id="message" name="message" rows="2"
+                                            class="form-control md-textarea"></textarea>
+                                        <label for="message">Your message</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-center text-md-left">
+                            <a class="btn btn-primary">Send</a>
+                        </div>
+                        <div class="status"></div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                <p>Moi Avenue, Nairobi, Kenya</p>
+                            </li>
+                            <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                <p>+ 254 704 122 060</p>
+                            </li>
+                            <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                <p>contact@creativesalon.com</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer font-small special-color-dark pt-4">
+                <div class="container">
+                    <ul class="list-unstyled list-inline text-center">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-fb mx-1">
+                                <i class="fab fa-facebook-f"> </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-tw mx-1">
+                                <i class="fab fa-twitter"> </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-gplus mx-1">
+                                <i class="fab fa-google-plus-g"> </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-li mx-1">
+                                <i class="fab fa-linkedin-in"> </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-dribbble mx-1">
+                                <i class="fab fa-dribbble"> </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-copyright text-center py-3">© 2021 Copyright:
+                    <a href="https://mdbootstrap.com/education/bootstrap/"> creativesalon.com</a>
+                </div>
+            </footer>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>
